@@ -1,5 +1,5 @@
 {
-  "name": "node-capsolver",
+  "name": "node-capsolver-ts",
   "version": "1.0.3",
   "description": "A typescript API wrapper for CapSolver.com written in Node.js",
   "main": "dist/index.js",
