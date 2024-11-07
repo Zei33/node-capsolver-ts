@@ -22,6 +22,7 @@
     "fix": "eslint --fix",
     "build": "tsc -p .",
     "v2": "npm run build && node ./tests/v2.js",
+	"v3": "npm run build && node ./tests/v3.js",
     "image": "npm run build && node ./tests/image.js",
     "postinstall": "npm run build"
   },

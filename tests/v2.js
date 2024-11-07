@@ -1,4 +1,4 @@
-// Credit michaelkitas: https://github.com/michaelkitas/CapSolver-Recaptcha-Python/blob/main/recaptchav2.py
+// Credit @michaelkitas: https://github.com/michaelkitas/CapSolver-Recaptcha-Python/blob/main/recaptchav2.py
 
 import "dotenv/config";
 import CapSolver from "../dist/index.js";
