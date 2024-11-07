@@ -1,4 +1,14 @@
 import axios, { AxiosInstance } from "axios";
+import { 
+	CapSolverOptions, 
+	CapSolverBalanceResponse,
+	CapSolverTask,
+	CapSolverCreateTaskResponse,
+	CapSolverGetTaskResultResponse,
+	FeedbackTaskResult,
+	CapSolverFeedbackTaskResponse,
+	CapSolverSolveTaskResult
+} from "./types/types.js";
 import { Buffer } from "buffer";
 
 function PreProcessTask(task: any): void {
@@ -109,4 +119,5 @@ class CapSolver {
 	}
 }
 
+export * from "./types/types.js";
 export default CapSolver;

@@ -1,4 +1,4 @@
-interface CapSolverOptions {
+export interface CapSolverOptions {
 	/** Your developer appId, Apply in dashboard's developer section */
 	appId?: string;
 	/** Whether to print the current status */
@@ -7,7 +7,7 @@ interface CapSolverOptions {
 	verboseIdentifier?: string;
 }
 
-interface ImageToTextTask {
+export interface ImageToTextTask {
 	type: 'ImageToTextTask';
 	/** Base64 encoded content of the image (no newlines, no data:image/****;base64, content) */
 	body: string | Buffer;
@@ -35,7 +35,7 @@ interface ImageToTextTask {
 	case?: boolean;
 }
 
-interface HCaptchaClassification {
+export interface HCaptchaClassification {
 	type: 'HCaptchaClassification';
 	/** Base64 encoded images, do not include "data:image/***; base64,". Assembles the pictures as a list: [base64, base64, ...] */
 	queries: (string | Buffer)[];
@@ -43,7 +43,7 @@ interface HCaptchaClassification {
 	question: string;
 }
 
-interface FunCaptchaClassification {
+export interface FunCaptchaClassification {
 	type: 'FunCaptchaClassification';
 	/** Base64 encoded image, can be a screenshot (pass only the hexagonal image, do not pass the rest of the content) */
 	images: string | Buffer;
@@ -51,7 +51,7 @@ interface FunCaptchaClassification {
 	question: string;
 }
 
-interface ReCaptchaV2Classification {
+export interface ReCaptchaV2Classification {
 	type: 'ReCaptchaV2Classification';
 	/** Base64 image string */
 	image: string | Buffer;
@@ -59,7 +59,7 @@ interface ReCaptchaV2Classification {
 	question: string;
 }
 
-interface AwsWafClassification {
+export interface AwsWafClassification {
 	type: 'AwsWafClassification';
 	/** Base64 image strings */
 	images: (string | Buffer)[];
@@ -67,14 +67,14 @@ interface AwsWafClassification {
 	question: string;
 }
 
-type RecognitionTask =
+export type RecognitionTask =
 	| ImageToTextTask
 	| HCaptchaClassification
 	| FunCaptchaClassification
 	| ReCaptchaV2Classification
 	| AwsWafClassification;
 
-interface HCaptchaTask {
+export interface HCaptchaTask {
 	type: 'HCaptchaTask' | 'HCaptchaTurboTask';
 	/** Web address of the website using hCaptcha (e.g., https://google.com) */
 	websiteURL: string;
@@ -92,7 +92,7 @@ interface HCaptchaTask {
 	userAgent?: string;
 }
 
-interface HCaptchaTaskProxyLess {
+export interface HCaptchaTaskProxyLess {
 	type: 'HCaptchaTaskProxyLess';
 	websiteURL: string;
 	websiteKey: string;
@@ -102,9 +102,9 @@ interface HCaptchaTaskProxyLess {
 	userAgent?: string;
 }
 
-type HCaptcha = HCaptchaTask | HCaptchaTaskProxyLess;
+export type HCaptcha = HCaptchaTask | HCaptchaTaskProxyLess;
 
-interface FunCaptchaTask {
+export interface FunCaptchaTask {
 	type: 'FunCaptchaTask';
 	websiteURL: string;
 	websitePublicKey: string;
@@ -113,7 +113,7 @@ interface FunCaptchaTask {
 	data?: string;
 }
 
-interface FunCaptchaTaskProxyLess {
+export interface FunCaptchaTaskProxyLess {
 	type: 'FunCaptchaTaskProxyLess';
 	websiteURL: string;
 	websitePublicKey: string;
@@ -121,9 +121,9 @@ interface FunCaptchaTaskProxyLess {
 	data?: string;
 }
 
-type FunCaptcha = FunCaptchaTask | FunCaptchaTaskProxyLess;
+export type FunCaptcha = FunCaptchaTask | FunCaptchaTaskProxyLess;
 
-interface GeeTestTask {
+export interface GeeTestTask {
 	type: 'GeeTestTask';
 	websiteURL: string;
 	gt: string;
@@ -133,7 +133,7 @@ interface GeeTestTask {
 	geetestApiServerSubdomain?: string;
 }
 
-interface GeeTestTaskProxyLess {
+export interface GeeTestTaskProxyLess {
 	type: 'GeeTestTaskProxyLess';
 	websiteURL: string;
 	gt: string;
@@ -142,14 +142,14 @@ interface GeeTestTaskProxyLess {
 	geetestApiServerSubdomain?: string;
 }
 
-type GeeTest = GeeTestTask | GeeTestTaskProxyLess;
+export type GeeTest = GeeTestTask | GeeTestTaskProxyLess;
 
-interface Cookie {
+export interface Cookie {
 	name: string;
 	value: string;
 }
 
-interface ReCaptchaV2Task {
+export interface ReCaptchaV2Task {
 	type: 'ReCaptchaV2Task';
 	websiteURL: string;
 	websiteKey: string;
@@ -159,7 +159,7 @@ interface ReCaptchaV2Task {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV2TaskProxyLess {
+export interface ReCaptchaV2TaskProxyLess {
 	type: 'ReCaptchaV2TaskProxyLess';
 	websiteURL: string;
 	websiteKey: string;
@@ -168,7 +168,7 @@ interface ReCaptchaV2TaskProxyLess {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV2EnterpriseTask {
+export interface ReCaptchaV2EnterpriseTask {
 	type: 'ReCaptchaV2EnterpriseTask';
 	websiteURL: string;
 	websiteKey: string;
@@ -180,7 +180,7 @@ interface ReCaptchaV2EnterpriseTask {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV2EnterpriseTaskProxyLess {
+export interface ReCaptchaV2EnterpriseTaskProxyLess {
 	type: 'ReCaptchaV2EnterpriseTaskProxyLess';
 	websiteURL: string;
 	websiteKey: string;
@@ -191,13 +191,13 @@ interface ReCaptchaV2EnterpriseTaskProxyLess {
 	cookies?: Cookie[];
 }
 
-type ReCaptchaV2 =
+export type ReCaptchaV2 =
 	| ReCaptchaV2Task
 	| ReCaptchaV2TaskProxyLess
 	| ReCaptchaV2EnterpriseTask
 	| ReCaptchaV2EnterpriseTaskProxyLess;
 
-interface ReCaptchaV3Task {
+export interface ReCaptchaV3Task {
 	type: 'ReCaptchaV3Task';
 	websiteURL: string;
 	websiteKey: string;
@@ -208,7 +208,7 @@ interface ReCaptchaV3Task {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV3TaskProxyLess {
+export interface ReCaptchaV3TaskProxyLess {
 	type: 'ReCaptchaV3TaskProxyLess';
 	websiteURL: string;
 	websiteKey: string;
@@ -218,7 +218,7 @@ interface ReCaptchaV3TaskProxyLess {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV3EnterpriseTask {
+export interface ReCaptchaV3EnterpriseTask {
 	type: 'ReCaptchaV3EnterpriseTask';
 	websiteURL: string;
 	websiteKey: string;
@@ -231,7 +231,7 @@ interface ReCaptchaV3EnterpriseTask {
 	cookies?: Cookie[];
 }
 
-interface ReCaptchaV3EnterpriseTaskProxyLess {
+export interface ReCaptchaV3EnterpriseTaskProxyLess {
 	type: 'ReCaptchaV3EnterpriseTaskProxyLess';
 	websiteURL: string;
 	websiteKey: string;
@@ -243,22 +243,22 @@ interface ReCaptchaV3EnterpriseTaskProxyLess {
 	cookies?: Cookie[];
 }
 
-type ReCaptchaV3 =
+export type ReCaptchaV3 =
 	| ReCaptchaV3Task
 	| ReCaptchaV3TaskProxyLess
 	| ReCaptchaV3EnterpriseTask
 	| ReCaptchaV3EnterpriseTaskProxyLess;
 
-type ReCaptcha = ReCaptchaV2 | ReCaptchaV3;
+export type ReCaptcha = ReCaptchaV2 | ReCaptchaV3;
 
-interface MTCaptcha {
+export interface MTCaptcha {
 	type: 'MTCaptcha';
 	websiteURL: string;
 	websiteKey: string;
 	proxy: string;
 }
 
-interface DatadomeSlider {
+export interface DatadomeSlider {
 	type: 'DatadomeSliderTask';
 	websiteURL: string;
 	captchaUrl: string;
@@ -266,7 +266,7 @@ interface DatadomeSlider {
 	userAgent: string;
 }
 
-interface AntiCloudflare {
+export interface AntiCloudflare {
 	type: 'AntiCloudflareTask';
 	websiteURL: string;
 	websiteKey: string;
@@ -278,7 +278,7 @@ interface AntiCloudflare {
 	proxy: string;
 }
 
-interface AwsWafCaptcha {
+export interface AwsWafCaptcha {
 	type: 'AntiAwsWafTask' | 'AntiAwsWafTaskProxyLess';
 	websiteURL: string;
 	awsKey?: string;
@@ -288,7 +288,7 @@ interface AwsWafCaptcha {
 	proxy?: string;
 }
 
-interface CyberSiAra {
+export interface CyberSiAra {
 	type: 'AntiCyberSiAraTask' | 'AntiCyberSiAraTaskProxyLess';
 	websiteURL: string;
 	SlideMasterUrlId: string;
@@ -296,7 +296,7 @@ interface CyberSiAra {
 	proxy?: string;
 }
 
-interface Imperva {
+export interface Imperva {
 	type: 'AntiImpervaTask' | 'AntiImpervaTaskProxyLess';
 	websiteURL: string;
 	userAgent: string;
@@ -308,7 +308,7 @@ interface Imperva {
 	reeseToken?: string;
 }
 
-interface AkamaiBMP {
+export interface AkamaiBMP {
 	type: 'AntiAkamaiBMPTask';
 	packageName: string;
 	version?: string;
@@ -318,7 +318,7 @@ interface AkamaiBMP {
 	pow?: string;
 }
 
-interface AkamaiWeb {
+export interface AkamaiWeb {
 	type: 'AntiAkamaiWebTask';
 	url: string;
 	abck?: string;
@@ -326,7 +326,7 @@ interface AkamaiWeb {
 	userAgent?: string;
 }
 
-type TokenTask =
+export type TokenTask =
 	| HCaptcha
 	| FunCaptcha
 	| GeeTest
@@ -340,9 +340,9 @@ type TokenTask =
 	| AkamaiBMP
 	| AkamaiWeb;
 
-type CapSolverTask = RecognitionTask | TokenTask;
+export type CapSolverTask = RecognitionTask | TokenTask;
 
-interface CapSolverBalanceResponse {
+export interface CapSolverBalanceResponse {
 	/** Error message: 0 - no error, 1 - with error */
 	errorId: 0 | 1;
 	/** https://docs.capsolver.com/guide/api-error.html */
@@ -355,7 +355,7 @@ interface CapSolverBalanceResponse {
 	packages: any[];
 }
 
-interface CapSolverCreateTaskResponse {
+export interface CapSolverCreateTaskResponse {
 	errorId: 0 | 1;
 	errorCode: string;
 	errorDescription: string;
@@ -366,7 +366,7 @@ interface CapSolverCreateTaskResponse {
 	taskId: string;
 }
 
-interface CapSolverGetTaskResultResponse {
+export interface CapSolverGetTaskResultResponse {
 	errorId: 0 | 1;
 	errorCode: string;
 	errorDescription: string;
@@ -374,7 +374,7 @@ interface CapSolverGetTaskResultResponse {
 	solution: any;
 }
 
-interface FeedbackTaskResult {
+export interface FeedbackTaskResult {
 	/** Whether the results of task processing pass validation */
 	invalid: boolean;
 	/** Error code [optional] */
@@ -383,7 +383,7 @@ interface FeedbackTaskResult {
 	message?: string;
 }
 
-interface CapSolverFeedbackTaskResponse {
+export interface CapSolverFeedbackTaskResponse {
 	errorId: 0 | 1;
 	errorCode: string;
 	errorDescription: string;
@@ -391,7 +391,7 @@ interface CapSolverFeedbackTaskResponse {
 	message: string;
 }
 
-interface CapSolverSolveTaskResult {
+export interface CapSolverSolveTaskResult {
 	errorId: 0 | 1;
 	errorCode: string;
 	errorDescription: string;
