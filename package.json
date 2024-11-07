@@ -1,26 +1,44 @@
 {
   "name": "node-capsolver",
   "version": "1.0.3",
-  "description": "",
-  "main": "index.js",
+  "description": "A typescript API wrapper for CapSolver.com written in Node.js",
+  "main": "dist/index.js",
+  "type": "module",
   "keywords": [
     "nodejs",
     "captcha",
     "captcha-solving",
     "capsolver",
     "capsolvercom",
-    "capsolver-library"
+    "capsolver-library",
+    "typescript"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/NovationA-Z/node-capsolver.git"
+    "url": "https://github.com/Zei33/node-capsolver-ts"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "fix": "eslint --fix",
+    "build": "tsc -p .",
+    "v2": "npm run build && node ./tests/v2.js",
+    "image": "npm run build && node ./tests/image.js",
+    "postinstall": "npm run build"
   },
-  "author": "",
+  "author": "Zei33",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.3.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/node": "^22.9.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.14.0",
+    "eslint-config-love": "^97.0.0",
+    "globals": "^15.12.0",
+    "playwright": "^1.48.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.13.0"
   }
 }
